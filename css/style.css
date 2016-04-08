@@ -60,7 +60,7 @@ h1 {
 .progress-bar li {
     display: inline-block;
     border: white 1px solid;
-    padding: 0px 5px;
+    padding: 3px 7px;
     border-radius: 100%;
 }
 
@@ -71,7 +71,7 @@ h1 {
 
 hr {
     position: relative;
-    top: -27px;
+    top: -29px;
     z-index: -50;
     border: 0;
     height: 1px;

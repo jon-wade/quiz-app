@@ -11,12 +11,12 @@ var questionArray = [];
 var questionOne = {
     text: 'Mars is home to the tallest mountain in the solar system, Olympus Mons, a shield volcano. But how tall and wide is Olympus Mons?',
     number: 1,
-    answerA: '14km high and 300km wide',
-    answerB: '21km high and 600km wide',
-    answerC: '28km high and 900km wide',
+    answerA: '14km high and 300km wide.',
+    answerB: '21km high and 600km wide.',
+    answerC: '28km high and 900km wide.',
     correct: 'B',
-    correctText: 'Correct, 21km high and 600km wide - a truly massive mountain',
-    errorText: 'Sorry, the correct answer is B - 21km high and 600km wide'
+    correctText: 'Correct, 21km high and 600km wide - a truly massive mountain!!',
+    errorText: 'Sorry, the correct answer is B - 21km high and 600km wide.'
 };
 
 //create the remaining question objects based on questionOne
@@ -55,7 +55,7 @@ questionFour.answerA = "Three times higher";
 questionFour.answerB = "Four times higher";
 questionFour.answerC = "Five times higher";
 questionFour.correct = "A";
-questionFour.correctText = "Yes, you could leap up to three times higher due to Mars' low gravity";
+questionFour.correctText = "Yes, you could leap up to three times higher due to Mars' low gravity.";
 questionFour.errorText = "No, that's a little over-optimistic, you could jump about three times higher.";
 
 //questionFive
@@ -65,8 +65,8 @@ questionFive.answerA = "Zinc";
 questionFive.answerB = "Iron";
 questionFive.answerC = "Boron";
 questionFive.correct = "B";
-questionFive.correctText = "Iron is correct, its basically rust that makes Mars red!";
-questionFive.errorText = "Nope - its oxides of Iron in the soil, essentially rust, that make Mars red";
+questionFive.correctText = "Iron is correct, it's basically rust that makes Mars red!";
+questionFive.errorText = "Nope - its oxides of Iron in the soil, essentially rust, that make Mars red.";
 
 //load all questions into questionArray
 
@@ -122,19 +122,19 @@ function loadContent(){
         $('p#B').next().text(questionArray[questionNum].answerB);
         $('p#C').next().text(questionArray[questionNum].answerC);
         if (questionNum == 0) {
-            $('#one').attr("class", "active");
+            $('#one').attr("class", "active number");
         }
         else if (questionNum == 1) {
-            $('#two').attr("class", "active");
+            $('#two').attr("class", "active number");
         }
         else if (questionNum == 2) {
-            $('#three').attr("class", "active");
+            $('#three').attr("class", "active number");
         }
         else if (questionNum == 3) {
-            $('#four').attr("class", "active");
+            $('#four').attr("class", "active number");
         }
         else if (questionNum == 4) {
-            $('#five').attr("class", "active");
+            $('#five').attr("class", "active number");
         }
     }
 }
@@ -143,13 +143,70 @@ function checkAnswer(answer) {
     if (questionArray[questionNum].correct == answer) {
         $('.q-and-a p').text(questionArray[questionNum].correctText);
         $('.multiple-choice').hide();
+        markProgress('correct');
         score++;
     }
     else {
         $('.q-and-a p').text(questionArray[questionNum].errorText);
         $('.multiple-choice').hide();
+        markProgress('incorrect');
     }
     questionNum++;
     //delay loading new content so user has time to view the message on the screen
     setTimeout(loadContent, 5000);
+}
+
+function markProgress(result) {
+    if (questionNum == 0) {
+        if (result == 'correct') {
+            correct('#one')
+        }
+        else if (result == 'incorrect') {
+            incorrect('#one')
+        }
+    }
+    else if (questionNum == 1) {
+        if (result == 'correct') {
+            correct('#two')
+        }
+        else if (result == 'incorrect') {
+            incorrect('#two')
+        }
+    }
+    else if (questionNum == 2) {
+        if (result == 'correct') {
+            correct('#three')
+        }
+        else if (result == 'incorrect') {
+            incorrect('#three')
+        }
+    }
+    else if (questionNum == 3) {
+        if (result == 'correct') {
+            correct('#four')
+        }
+        else if (result == 'incorrect') {
+            incorrect('#four')
+        }
+    }
+    else if (questionNum == 4) {
+        if (result == 'correct') {
+            correct('#five')
+        }
+        else if (result == 'incorrect') {
+            incorrect('#five')
+        }
+    }
+}
+
+function correct(ident) {
+    $(ident).html('&#10004;');
+    $(ident).attr("class", "");
+    $(ident).attr("style", "font-size: 0.875em; color: green; border-color: green;");
+}
+
+function incorrect(ident) {
+    $(ident).html('&#10008;');
+    $(ident).attr("class", "");
+    $(ident).attr("style", "color: red; border-color: red;");
 }
