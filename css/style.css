@@ -11,27 +11,6 @@ ul {
     padding-left: 0px;
 }
 
-.q-and-a {
-    padding: 0% 20%;
-    font-size: 2em;
-}
-
-.option {
-    font-size: 3.5em;
-    border: white solid 5px;
-    width: 3.5em;
-    height: 2em;
-    vertical-align: middle;
-    border-radius: 1em;
-    padding-top:48px;
-}
-
-.option:hover {
-    background-color: white;
-    opacity: 0.3;
-    color: black;
-}
-
 body {
     background-color: black;
     background-image: url('../img/mars-image-1440x768.jpg');
@@ -48,6 +27,35 @@ h1 {
     text-align: left;
 }
 
+.q-and-a {
+    padding: 0% 20%;
+    font-size: 2em;
+}
+
+.answer {
+    font-size: 1.5em;
+}
+
+.option {
+    font-size: 4em;
+    border: white solid 5px;
+    width: 25%;
+    margin: 0 auto;
+    border-radius: 100%;
+}
+
+.option:hover {
+    background-color: white;
+    opacity: 0.3;
+    color: black;
+}
+
+.multiple-choice ul {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .multiple-choice ul li {
     display: inline-block;
+    padding: 0 2%;
 }
