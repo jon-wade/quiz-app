@@ -2,7 +2,7 @@
 
 //put global variables here
 var score=0;
-var questionNum=0;
+var questionNum=3;
 var questionArray = [];
 
 //create first question object
@@ -27,24 +27,36 @@ var questionFive = Object.create(questionOne);
 //add content to the remaining questions objects
 
 //questionTwo
-questionTwo.text = "Our Sun looks to be a different size on Mars than it does on Earth (due to the difference in distance of Earth and Mars respectively from the Sun). On Mars the sun looks...";
+questionTwo.text = "Our Sun looks to be a different size on Mars than it does on Earth (due to the difference in distance from the Sun of the Earth and Mars respectively). On Mars the Sun looks...";
 questionTwo.number = 2;
 questionTwo.answerA = "...half the size?";
 questionTwo.answerB = "...twice the size?";
-questionTwo.answerC = "...quarter the size?";
+questionTwo.answerC = "...one quarter the size?";
 questionTwo.correct = "A";
 
 //questionThree
-questionThree.text = "Our Sun looks to be a different size on Mars than it does on Earth (due to the difference in distance of Earth and Mars respectively from the Sun). On Mars the sun looks...";
+questionThree.text = "A Martian year (the time it takes Mars to complete one full orbit of the Sun) is considerably longer than one on Earth. How long is it?";
 questionThree.number = 3;
-questionThree.answerA = "...half the size?";
-questionThree.answerB = "...twice the size?";
-questionThree.answerC = "...quarter the size?";
-questionThree.correct = "A";
+questionThree.answerA = "451 days";
+questionThree.answerB = "589 days";
+questionThree.answerC = "687 days";
+questionThree.correct = "C";
 
+//questionFour
+questionFour.text = "If you were able to visit Mars you'd find the gravity there much weaker than on Earth. How much higher could you jump into the air on Mars than on Earth?";
+questionFour.number = 4;
+questionFour.answerA = "Three times higher";
+questionFour.answerB = "Four times higher";
+questionFour.answerC = "Five times higher";
+questionFour.correct = "A";
 
-
-
+//questionFive
+questionFive.text = "Mars is known as The Red Planet, but what chemical element abundant in the Martian soil provides this distinctive colouring?";
+questionFive.number = 5;
+questionFive.answerA = "Zinc";
+questionFive.answerB = "Iron";
+questionFive.answerC = "Boron";
+questionFive.correct = "B";
 
 //load all questions into questionArray
 
@@ -94,7 +106,15 @@ function loadContent(){
     else if (questionNum ==1){
         $('#two').attr("class", "active");
     }
-
+    else if (questionNum ==2){
+        $('#three').attr("class", "active");
+    }
+    else if (questionNum ==3){
+        $('#four').attr("class", "active");
+    }
+    else if (questionNum ==4){
+        $('#five').attr("class", "active");
+    }
 
 
 }
