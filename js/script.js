@@ -78,49 +78,45 @@ questionArray.push(questionFive);
 
 //main body
 $(document).ready(function() {
+
+    //load initial dynamic page content
     loadContent();
-
-
 
     //event listeners for answer clicks here
     $('#A').click(function(){
-        console.log('A clicked');
         checkAnswer('A');
     });
 
     $('#B').click(function(){
-        console.log('B clicked');
         checkAnswer('B')
     });
 
     $('#C').click(function(){
-        console.log('C clicked');
         checkAnswer('C');
     });
-
-
-
-
 
 });
 
 //put functions below here
 function loadContent(){
     if (questionNum >4) {
-        console.log('End of game code start here');
+        //end of game code below here
         $('.q-and-a h2').text("Game Over");
         $('.q-and-a p').text("Thanks for playing. You scored " + score + "!");
         $('.multiple-choice').hide();
     }
     else {
-        console.log("loadContent function executing");
-        console.log("loading question number: " + questionArray[questionNum].number);
+        //show answers section
         $('.multiple-choice').show();
+        //insert question number
         $('.q-and-a h2').text("Question #" + questionArray[questionNum].number);
+        //insert question text
         $('.q-and-a p').text(questionArray[questionNum].text);
+        //insert three possible answers
         $('p#A').next().text(questionArray[questionNum].answerA);
         $('p#B').next().text(questionArray[questionNum].answerB);
         $('p#C').next().text(questionArray[questionNum].answerC);
+        //below is a bit ugly but sets the active question on the progress bar
         if (questionNum == 0) {
             $('#one').attr("class", "active number");
         }
@@ -140,22 +136,31 @@ function loadContent(){
 }
 
 function checkAnswer(answer) {
+    //correct
     if (questionArray[questionNum].correct == answer) {
+        //provide confirmation that answer is correct
         $('.q-and-a p').text(questionArray[questionNum].correctText);
+        //hide the potential answer sections
         $('.multiple-choice').hide();
+        //update progress bar
         markProgress('correct');
+        //increment score
         score++;
     }
+    //incorrect
     else {
         $('.q-and-a p').text(questionArray[questionNum].errorText);
         $('.multiple-choice').hide();
         markProgress('incorrect');
     }
+    //move onto the next question
     questionNum++;
     //delay loading new content so user has time to view the message on the screen
     setTimeout(loadContent, 5000);
 }
 
+
+//logic to change the progress bar and insert a tick or a cross
 function markProgress(result) {
     if (questionNum == 0) {
         if (result == 'correct') {
@@ -199,6 +204,8 @@ function markProgress(result) {
     }
 }
 
+//element selector passed in from calling function
+//update with tick or cross and change color
 function correct(ident) {
     $(ident).html('&#10004;');
     $(ident).attr("class", "");

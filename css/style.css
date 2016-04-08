@@ -19,7 +19,6 @@ a {
 body {
     background-color: black;
     background-image: url('../img/mars-image-1440x768.jpg');
-    width: 100%
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
