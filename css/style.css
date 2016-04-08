@@ -85,6 +85,7 @@ hr {
 
 .answer {
     font-size: 1.5em;
+    min-width: 290px;
 }
 
 .option {
@@ -109,6 +110,7 @@ hr {
 .multiple-choice ul li {
     display: inline-block;
     padding: 0 2%;
+    /*min-width: 350px;*/
 }
 
 .footer {
